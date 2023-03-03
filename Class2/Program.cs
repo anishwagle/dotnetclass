@@ -15,7 +15,7 @@
             //var z = x.ToString();
             var name3 = $"{dic["Husband"]} and {dic["Wife"]} are husband and wife";
             Console.WriteLine(name3);
-            Console.WriteLine("Hello, World!");
+            Console.WriteLine(" Ram and sam");
 
         }
     }
