@@ -1,23 +1,27 @@
-﻿namespace Class2
+﻿// Assignment 1 from first class
+// Bot reply
+namespace class1
 {
-    internal class Program
+    internal class program
     {
-        static void Main(string[] args)
+        static void Main(String[] args)
         {
-            //string,bool, int, float, list, dic,char
-            var list = new List<string>() { "krishna","radha"};
-            var dic = new Dictionary<string, int>();
-            dic["age"] = 20;
-            //Console.Write("x:");
-            //var x = Console.ReadLine();
-            //Console.Write("y:");
-            //var y =Console.ReadLine();
-            //var z = x.ToString();
-            var name3 = $"{dic["Husband"]} and {dic["Wife"]} are husband and wife";
-            Console.WriteLine(name3);
-            Console.WriteLine("Hello, everyone!");
-            Console.WriteLine("Hello, Class!");
+            Console.WriteLine("Enter the Capital city of Nepal: ");
+            var user1 = Console.ReadLine();
+            Console.WriteLine($"The Capital City of Nepal is: {user1} \n");
 
+            Console.WriteLine("What is the Size of Nepal: ");
+            var area = int.Parse(Console.ReadLine());  //147,181km^2
+            Console.WriteLine($"The Area of Nepal is: {area} KM^2 \n");
+
+            Console.WriteLine("Enter three Religion that follows in Nepal: ");
+            string input = Console.ReadLine();
+            string[] religions = input.Split(' ');
+            Console.WriteLine($"The three main religions that follows in Nepal are:");
+            foreach (string religion in religions)
+            {
+                Console.WriteLine(religion);
+            }
         }
     }
 }
