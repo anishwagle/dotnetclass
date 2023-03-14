@@ -2,42 +2,37 @@
 {
     internal class Program
     {
+        
         static void Main(string[] args)
         {
-            
-            //Dict
-            var dic1 = new Dictionary<string, bool>();
-            dic1["sun"] = false;
-            dic1["mon"] = false;
-            dic1["tue"] = false;
-            dic1["wed"] = false;
-            dic1["thr"] = false;
-            dic1["fri"] = false;
-            dic1["sat"] = true;
-
-            //dic1.Remove("a");
-            //dic1.Clear();
-            //if (dic1.ContainsKey("a"))
-            //{
-            //    Console.WriteLine(dic1["a"]);
-
-            //}
-            var list = new List<string>();
-            //foreach
-            foreach (var item in dic1)
-            {
-                if(!item.Value) {
-                    Console.WriteLine($"Its{item.Key} day,Go to work");
-
-                }
-                else
-                {
-                    Console.WriteLine("Its Holiday");
-                }
-
-            }
-
+         var sum=   Add(5.5f,2.3f);
+            Console.WriteLine(sum);
             
         }
+
+        static void WelcomeMessage(string name="Hari" )
+        {
+            Console.WriteLine("Hello "+name);
+            Console.WriteLine("Everything is great");
+        }
+
+        
+        static int Add(int a,int b)
+        {
+            Console.WriteLine("function2");
+
+            return a + b;
+        }
+        static float Add(float? a, float? b)
+        {
+            if(b== null)
+            {
+                b = 0;
+            }
+            Console.WriteLine("function1");
+
+            return a.Value + b.Value;
+        }
+        
     }
 }
