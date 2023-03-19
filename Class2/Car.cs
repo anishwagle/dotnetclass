@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cars;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,35 +13,33 @@ namespace Cars
        
         public string Name { get; set; }
         public string Color { get; set; }
-
+        protected int Speed;
         public Car() {
-            Console.WriteLine("Init");
         }
         public Car(string name) {
-            Console.WriteLine("Init param");
             Name = name;
             Color = "REd";
         }
 
-        public void SetName(string name)
+        
+        public virtual void DisplayIntroOfGame()
         {
-            Name= name;
-        }
-        public string GetName()
-        {
-            Console.WriteLine("GetName");
-            return Name;
-        }
-        public static void DisplayIntroOfGame()
-        {
-            Console.WriteLine("Welcome To Our Car Game");
+            Console.WriteLine("Parent");
         }
     }
+
 }
+
 namespace test
 {
-    public class Car
+    public class ElectricCar : Car
     {
+        public int Charge { get; set; }
 
+        public override void DisplayIntroOfGame()
+        {
+            
+            Console.WriteLine("Child");
+        }
     }
 }
