@@ -1,54 +1,21 @@
-﻿namespace Class2
+﻿using Class2.Services;
+using Class2.Services.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
+
+namespace Class2
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            //string,bool, int, float, list, dic,char
-            var p = "sadfa";
-            Console.Write("x:");
-            var x =int.Parse( Console.ReadLine());
-            Console.Write("y:");
-            var y =Convert.ToInt32( Console.ReadLine());
-            Console.Write("operation:");
-            var operation = Console.ReadLine();
+            var serviceCollection = new ServiceCollection();
+            serviceCollection.AddSingleton<App>();
+            serviceCollection.AddSingleton<IUserInfoService, UserInfoService>();
 
-            if (operation == "/") // == != < > <= >=
-            {
-                if(x>y && y != 0) //&& - and , || or
-                {
-                    Console.WriteLine(x + y);
-                }
-                if (p == null) { }
-                
-            }
-            else if (operation == "-") 
-            {
-                Console.WriteLine(x-y);
-            }
-            else
-            {
-                Console.WriteLine("no operation found");
-            }
+            var serviceProvider =  serviceCollection.BuildServiceProvider();
 
-            switch(operation) {
-                case "+":
-                    if (x > y && y != 0) //&& - and , || or
-                    {
-                        Console.WriteLine(x + y);
-                    }
-                    if (p == null) { }
-                    break;
-                case "-":
-                    Console.WriteLine(x - y);
-                    break;
-                default:
-                    Console.WriteLine("no operation found");
-                    break;
-            }
-
-         
-
+            var app = serviceProvider.GetRequiredService<App>();
+            app.Main();
         }
     }
 }
