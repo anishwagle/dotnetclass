@@ -19,9 +19,86 @@ namespace Class2
         }
         public void Main()
         {
-            var userinfo = new UserInfoService();
-            var response = _userInfoService.AddUserInfo(new UserInfoModel());
-            Console.WriteLine(response);
+            
+            var isAppRunning = true;
+            Console.WriteLine("Welcome To Our Contact Management Software");
+            while (isAppRunning)
+            {
+
+                Options();
+                var input = Console.ReadLine();
+                switch (input)
+                {
+                    case "2":
+                        var userInfos = _userInfoService.GetAllUserInfo();
+                        foreach(var item in userInfos)
+                        {
+                            Console.WriteLine($"FirstName:{item.FirstName}");
+                            Console.WriteLine($"MiddleName:{item.MiddleName}");
+                            Console.WriteLine($"LastName:{item.LastName}");
+                            Console.WriteLine($"Email:{item.Email}");
+                            Console.WriteLine($"Phone:{item.PhoneNumber}");
+                            Console.WriteLine("--------------------------------------------");
+                        }
+                        break;
+                    case "1":
+                        var userinfo = new UserInfoModel();
+                        userinfo.Id= Guid.NewGuid();
+                        Console.Write("FirstName:");
+                        userinfo.FirstName = Console.ReadLine();
+                        while (String.IsNullOrEmpty(userinfo.FirstName))
+                        {
+                            Console.WriteLine("FirstName Cannot Be null");
+                            Console.Write("FirstName:");
+                            userinfo.FirstName = Console.ReadLine();
+                        }
+                        Console.Write("MiddleName:");
+                        userinfo.MiddleName = Console.ReadLine();
+                        Console.Write("LastName:");
+                        userinfo.LastName = Console.ReadLine();
+                        while (String.IsNullOrEmpty(userinfo.LastName))
+                        {
+                            Console.WriteLine("LastName Cannot Be null");
+                            Console.Write("LastName:");
+                            userinfo.LastName = Console.ReadLine();
+                        }
+                        Console.Write("Email:");
+                        userinfo.Email = Console.ReadLine();
+                        while (String.IsNullOrEmpty(userinfo.Email))
+                        {
+                            Console.WriteLine("Email Cannot Be null");
+                            Console.Write("Email:");
+                            userinfo.Email = Console.ReadLine();
+                        }
+                        Console.Write("Phone:");
+                        userinfo.PhoneNumber = Console.ReadLine();
+                        while (String.IsNullOrEmpty(userinfo.PhoneNumber))
+                        {
+                            Console.WriteLine("PhoneNumber Cannot Be null");
+                            Console.Write("PhoneNumber:");
+                            userinfo.PhoneNumber = Console.ReadLine();
+                        }
+                        var response = _userInfoService.AddUserInfo(userinfo);
+                        Console.WriteLine(response);
+                        break;
+                    case "0":
+                        isAppRunning= false;
+                        break;
+                    default:
+                        Console.WriteLine("Please Enter Valid Option");
+                        break;
+                }
+
+            }
+            
+        }
+    
+        public static void Options()
+        {
+            Console.WriteLine("Please Choose Your Option:");
+            Console.WriteLine("1.Add Contact");
+            Console.WriteLine("2.Get All Contact");
+            Console.WriteLine("0.Exit");
         }
     }
 }

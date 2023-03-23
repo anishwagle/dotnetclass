@@ -21,5 +21,10 @@ namespace Class2.Services
             UserInfos.Add(userInfoModel);
             return "Added Successfully";
         }
+
+        public List<UserInfoModel> GetAllUserInfo()
+        {
+            return UserInfos;
+        }
     }
 }

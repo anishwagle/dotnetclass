@@ -11,5 +11,6 @@ namespace Class2.Services.Interfaces
     public interface IUserInfoService
     {
         public string AddUserInfo(UserInfoModel userInfoModel);
+        public List<UserInfoModel> GetAllUserInfo();
     }
 }
