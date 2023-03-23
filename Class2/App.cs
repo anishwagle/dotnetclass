@@ -19,7 +19,7 @@ namespace Class2
         }
         public void Main()
         {
-            
+
             var isAppRunning = true;
             Console.WriteLine("Welcome To Our Contact Management Software");
             while (isAppRunning)
@@ -29,21 +29,73 @@ namespace Class2
                 var input = Console.ReadLine();
                 switch (input)
                 {
-                    case "2":
-                        var userInfos = _userInfoService.GetAllUserInfo();
-                        foreach(var item in userInfos)
+                    case "4":
+                        ListAllContacts();
+                        Console.Write("ID:");
+                        var updateId = Console.ReadLine();
+                        while (String.IsNullOrEmpty(updateId))
                         {
-                            Console.WriteLine($"FirstName:{item.FirstName}");
-                            Console.WriteLine($"MiddleName:{item.MiddleName}");
-                            Console.WriteLine($"LastName:{item.LastName}");
-                            Console.WriteLine($"Email:{item.Email}");
-                            Console.WriteLine($"Phone:{item.PhoneNumber}");
-                            Console.WriteLine("--------------------------------------------");
+                            Console.WriteLine("Id Cannot Be null");
+                            Console.Write("ID:");
+                            updateId = Console.ReadLine();
                         }
+                        var updateIsSuccess = Guid.TryParse(updateId, out Guid updateGuid);
+                        if (updateIsSuccess) { 
+                        
+                            var getByIdResponse = _userInfoService.GetUserInfoById(updateGuid);
+                            if(getByIdResponse == null) {
+                                Console.WriteLine("UserNotFound");
+                            }
+                            else
+                            {
+                                Console.Write("Phone:");
+                                var phone  = Console.ReadLine();
+                                while (String.IsNullOrEmpty(phone))
+                                {
+                                    Console.WriteLine("PhoneNumber Cannot Be null");
+                                    Console.Write("PhoneNumber:");
+                                    phone = Console.ReadLine();
+                                }
+                                var res = _userInfoService.UpdatePhone(updateGuid,  phone);
+                                Console.WriteLine(res);
+                            }
+                            
+                            
+                           
+                        }
+                        else
+                        {
+                            Console.WriteLine("You Entered Invalid Id");
+                        }
+                        break;
+                    case "3":
+
+                        ListAllContacts();
+                        Console.Write("Plese Enter The ID Of Contact you want to Delete:");
+                        var id = Console.ReadLine();
+                        while (String.IsNullOrEmpty(id))
+                        {
+                            Console.WriteLine("Id Cannot Be null");
+                            Console.Write("ID:");
+                            id = Console.ReadLine();
+                        }
+                        var isSuccess = Guid.TryParse(id, out Guid result);
+                        if (isSuccess)
+                        {
+                            var res = _userInfoService.DeleteUserInfo(result);
+                            Console.WriteLine(res);
+                        }
+                        else { 
+                            Console.WriteLine("You Entered Invalid Id"); 
+                        }
+                        break;
+                    case "2":
+
+                        ListAllContacts();
                         break;
                     case "1":
                         var userinfo = new UserInfoModel();
-                        userinfo.Id= Guid.NewGuid();
+                        userinfo.Id = Guid.NewGuid();
                         Console.Write("FirstName:");
                         userinfo.FirstName = Console.ReadLine();
                         while (String.IsNullOrEmpty(userinfo.FirstName))
@@ -82,7 +134,7 @@ namespace Class2
                         Console.WriteLine(response);
                         break;
                     case "0":
-                        isAppRunning= false;
+                        isAppRunning = false;
                         break;
                     default:
                         Console.WriteLine("Please Enter Valid Option");
@@ -90,14 +142,29 @@ namespace Class2
                 }
 
             }
-            
+
         }
-    
+        public void ListAllContacts()
+        {
+            var userInfos = _userInfoService.GetAllUserInfo();
+            foreach (var item in userInfos)
+            {
+                Console.WriteLine($"ID:{item.Id}");
+                Console.WriteLine($"FirstName:{item.FirstName}");
+                Console.WriteLine($"MiddleName:{item.MiddleName}");
+                Console.WriteLine($"LastName:{item.LastName}");
+                Console.WriteLine($"Email:{item.Email}");
+                Console.WriteLine($"Phone:{item.PhoneNumber}");
+                Console.WriteLine("--------------------------------------------");
+            }
+        }
         public static void Options()
         {
             Console.WriteLine("Please Choose Your Option:");
             Console.WriteLine("1.Add Contact");
             Console.WriteLine("2.Get All Contact");
+            Console.WriteLine("3.Delete Contact");
+            Console.WriteLine("4.Update Phone Number");
             Console.WriteLine("0.Exit");
         }
     }
