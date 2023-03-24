@@ -22,6 +22,7 @@ namespace Class2
 
             var isAppRunning = true;
             Console.WriteLine("Welcome To Our Contact Management Software");
+            SeedData();
             while (isAppRunning)
             {
 
@@ -29,8 +30,15 @@ namespace Class2
                 var input = Console.ReadLine();
                 switch (input)
                 {
+                    case "5":
+                        Console.Write("Search:");
+                        var searchParam = Console.ReadLine();
+                        var searchResult = _userInfoService.Search(searchParam);
+                        ListAllContacts(searchResult);
+                        break;
                     case "4":
-                        ListAllContacts();
+                        var userInfos3 = _userInfoService.GetAllUserInfo();
+                        ListAllContacts(userInfos3);
                         Console.Write("ID:");
                         var updateId = Console.ReadLine();
                         while (String.IsNullOrEmpty(updateId))
@@ -59,9 +67,6 @@ namespace Class2
                                 var res = _userInfoService.UpdatePhone(updateGuid,  phone);
                                 Console.WriteLine(res);
                             }
-                            
-                            
-                           
                         }
                         else
                         {
@@ -69,8 +74,8 @@ namespace Class2
                         }
                         break;
                     case "3":
-
-                        ListAllContacts();
+                        var userInfos1 = _userInfoService.GetAllUserInfo();
+                        ListAllContacts(userInfos1);
                         Console.Write("Plese Enter The ID Of Contact you want to Delete:");
                         var id = Console.ReadLine();
                         while (String.IsNullOrEmpty(id))
@@ -90,8 +95,8 @@ namespace Class2
                         }
                         break;
                     case "2":
-
-                        ListAllContacts();
+                        var userInfos = _userInfoService.GetAllUserInfo();
+                        ListAllContacts(userInfos);
                         break;
                     case "1":
                         var userinfo = new UserInfoModel();
@@ -144,9 +149,9 @@ namespace Class2
             }
 
         }
-        public void ListAllContacts()
+        public void ListAllContacts(List<UserInfoModel> userInfos)
         {
-            var userInfos = _userInfoService.GetAllUserInfo();
+            
             foreach (var item in userInfos)
             {
                 Console.WriteLine($"ID:{item.Id}");
@@ -165,7 +170,25 @@ namespace Class2
             Console.WriteLine("2.Get All Contact");
             Console.WriteLine("3.Delete Contact");
             Console.WriteLine("4.Update Phone Number");
+            Console.WriteLine("5.Search");
             Console.WriteLine("0.Exit");
+        }
+        public void SeedData()
+        {
+            for(var i = 0; i < 10; i++)
+            {
+                var user = new UserInfoModel()
+                {
+                    Id = Guid.NewGuid(),
+                    FirstName = $"{i}First",
+                    MiddleName = $"{i}MiddleName",
+                    LastName = $"{i}LastName",
+                    Email = $"{i}Email",
+                    PhoneNumber = $"{i}111111",
+
+                };
+                var response = _userInfoService.AddUserInfo(user);
+            }
         }
     }
 }

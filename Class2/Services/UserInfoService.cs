@@ -32,7 +32,11 @@ namespace Class2.Services
             return UserInfos;
         }
 
-       
+        public List<UserInfoModel> Search(string query)
+        {
+            var result = UserInfos.Where(x=>x.Email.ToLower().StartsWith(query.ToLower())||x.PhoneNumber.StartsWith(query)).ToList();
+            return result;
+        }
         public UserInfoModel GetUserInfoById(Guid id)
         {
             return UserInfos.FirstOrDefault(x => x.Id == id);

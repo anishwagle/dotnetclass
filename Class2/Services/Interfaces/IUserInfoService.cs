@@ -15,5 +15,6 @@ namespace Class2.Services.Interfaces
         public List<UserInfoModel> GetAllUserInfo();
         public UserInfoModel GetUserInfoById(Guid id);
         public string DeleteUserInfo(Guid id);
+        public List<UserInfoModel> Search(string query);
     }
 }
