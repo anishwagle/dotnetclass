@@ -1,22 +1,21 @@
-﻿namespace Class2
+﻿using Class2.Interface;
+using Class2.Services;
+using Microsoft.Extensions.DependencyInjection;
+
+namespace Class2
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            //string,bool, int, float, list, dic,char
-            var list = new List<string>() { "krishna","radha"};
-            var dic = new Dictionary<string, int>();
-            dic["age"] = 20;
-            //Console.Write("x:");
-            //var x = Console.ReadLine();
-            //Console.Write("y:");
-            //var y =Console.ReadLine();
-            //var z = x.ToString();
-            var name3 = $"{dic["Husband"]} and {dic["Wife"]} are husband and wife";
-            Console.WriteLine(name3);
-            Console.WriteLine("Hello, everyone!");
-            Console.WriteLine("Hello, Class!");
+            var serviceCollection = new ServiceCollection();
+            serviceCollection.AddSingleton<Application>();
+            serviceCollection.AddSingleton<IUserInfo, UserInfoService>();
+
+            var serviceProvider = serviceCollection.BuildServiceProvider();
+            var app = serviceProvider.GetRequiredService<Application>();
+
+            app.Main();
 
         }
     }
