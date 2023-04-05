@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -6,5 +6,82 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="CSS\.git\ms-persist.xml" />
+    <Content Include="CSS\.vs\ProjectSettings.json" />
+    <Content Include="CSS\.vs\VSWorkspaceState.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="CSS\.git\COMMIT_EDITMSG" />
+    <None Include="CSS\.git\config" />
+    <None Include="CSS\.git\description" />
+    <None Include="CSS\.git\FETCH_HEAD" />
+    <None Include="CSS\.git\HEAD" />
+    <None Include="CSS\.git\hooks\applypatch-msg.sample" />
+    <None Include="CSS\.git\hooks\commit-msg.sample" />
+    <None Include="CSS\.git\hooks\fsmonitor-watchman.sample" />
+    <None Include="CSS\.git\hooks\post-update.sample" />
+    <None Include="CSS\.git\hooks\pre-applypatch.sample" />
+    <None Include="CSS\.git\hooks\pre-commit.sample" />
+    <None Include="CSS\.git\hooks\pre-merge-commit.sample" />
+    <None Include="CSS\.git\hooks\pre-push.sample" />
+    <None Include="CSS\.git\hooks\pre-rebase.sample" />
+    <None Include="CSS\.git\hooks\pre-receive.sample" />
+    <None Include="CSS\.git\hooks\prepare-commit-msg.sample" />
+    <None Include="CSS\.git\hooks\push-to-checkout.sample" />
+    <None Include="CSS\.git\hooks\update.sample" />
+    <None Include="CSS\.git\index" />
+    <None Include="CSS\.git\info\exclude" />
+    <None Include="CSS\.git\logs\HEAD" />
+    <None Include="CSS\.git\logs\refs\heads\Html\Css" />
+    <None Include="CSS\.git\logs\refs\heads\master" />
+    <None Include="CSS\.git\logs\refs\remotes\origin\Html\Css" />
+    <None Include="CSS\.git\logs\refs\remotes\origin\master" />
+    <None Include="CSS\.git\objects\0e\36810ad7f4c8aff7555d4a1633ade8bf1e5f16" />
+    <None Include="CSS\.git\objects\16\53ef9f8cfc16db3ac6e6ff9f28dd86b68dbd68" />
+    <None Include="CSS\.git\objects\1e\0634178dab16d5c8fb0be95262490ba6141574" />
+    <None Include="CSS\.git\objects\1f\f0c423042b46cb1d617b81efb715defbe8054d" />
+    <None Include="CSS\.git\objects\22\145e0766f5af7ceb3aa28d10cb563410192efb" />
+    <None Include="CSS\.git\objects\27\d67a93c0ba6a9ea9f9141f95df4587274437e5" />
+    <None Include="CSS\.git\objects\32\f9de30bd985203406e6fd5626077dec9278fe6" />
+    <None Include="CSS\.git\objects\34\1b5bc283f89b2217356409f4ef962f5eed5259" />
+    <None Include="CSS\.git\objects\3c\dae98e5aa6429776baa850cc17234a81205d6b" />
+    <None Include="CSS\.git\objects\48\37a3ffd5dbb789ae161823a72070abc7ad01da" />
+    <None Include="CSS\.git\objects\48\9c54cfcebdf80215541f12266dcbcbc9f31284" />
+    <None Include="CSS\.git\objects\4b\66c17bbd40394a279a220e3f1781e754654c8a" />
+    <None Include="CSS\.git\objects\5d\289fd67aaadbf4e28b5e0cd59cdea6768e518d" />
+    <None Include="CSS\.git\objects\65\b21f134b4d1203b53ed3183530f855e5358a27" />
+    <None Include="CSS\.git\objects\65\d266ead8aca356c37ecb5f86d1bc321629673f" />
+    <None Include="CSS\.git\objects\66\d071cce008755567414a8e24ea15bc50955329" />
+    <None Include="CSS\.git\objects\90\3ed19e328b5b13d5b98f146f3e928d2b11b50a" />
+    <None Include="CSS\.git\objects\91\8f01523d84e1658545d3739026749f37ec6c24" />
+    <None Include="CSS\.git\objects\94\91a2fda28342ab358eaf234e1afe0c07a53d62" />
+    <None Include="CSS\.git\objects\96\31368654e7ea75a80bc33aa0d327c8d27a002f" />
+    <None Include="CSS\.git\objects\c1\2fe580e8ce71c7944152056af86acca217546b" />
+    <None Include="CSS\.git\objects\d7\1eef8b99b18b7d1e79d2caebffb3ffffdc01a9" />
+    <None Include="CSS\.git\objects\f0\d3a70ceaa69fb70811f58254dc738e0f939eac" />
+    <None Include="CSS\.git\ORIG_HEAD" />
+    <None Include="CSS\.git\refs\heads\Html\Css" />
+    <None Include="CSS\.git\refs\heads\master" />
+    <None Include="CSS\.git\refs\remotes\origin\Html\Css" />
+    <None Include="CSS\.git\refs\remotes\origin\master" />
+    <None Include="CSS\.vs\CSS\config\applicationhost.config" />
+    <None Include="CSS\.vs\CSS\FileContentIndex\528c1648-60bd-49d8-9f82-75bf68bc9b18.vsidx" />
+    <None Include="CSS\.vs\CSS\FileContentIndex\e6c30a35-fb7f-4543-91a0-8a3746908a18.vsidx" />
+    <None Include="CSS\.vs\CSS\FileContentIndex\f5a5da1a-3495-40f9-8fc7-2eb8280c5613.vsidx" />
+    <None Include="CSS\.vs\CSS\FileContentIndex\f63fede2-e9c1-4d4e-b174-8cb80de25891.vsidx" />
+    <None Include="CSS\.vs\CSS\FileContentIndex\read.lock" />
+    <None Include="CSS\.vs\slnx.sqlite" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="CSS\.git\objects\info\" />
+    <Folder Include="CSS\.git\objects\pack\" />
+    <Folder Include="CSS\.git\refs\tags\" />
+    <Folder Include="CSS\.vs\CSS\FileContentIndex\merges\" />
+    <Folder Include="CSS\.vs\CSS\v17\" />
+  </ItemGroup>
 
 </Project>
